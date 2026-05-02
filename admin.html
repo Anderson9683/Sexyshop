@@ -2,12 +2,9 @@
 <html lang="pt-br">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Painel Admin</title>
-
 <link rel="stylesheet" href="style.css">
 
 <script>
@@ -15,20 +12,6 @@ if(localStorage.getItem("admin") !== "logado"){
     window.location.href="login.html";
 }
 </script>
-
-</head>
-<html lang="pt-br">
-<head><script>
-if(localStorage.getItem("admin") !== "logado"){
-    window.location.href="login.html";
-}
-</script>
-
-<!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>Painel Admin</title>
-<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -46,13 +29,10 @@ if(localStorage.getItem("admin") !== "logado"){
 <h2>Painel ADMIN</h2>
 
 <form id="formProduto">
-
 <input id="nome" placeholder="Nome do Produto" required>
 <input id="preco" placeholder="Preço" required>
 <input id="imagem" placeholder="URL da imagem" required>
-
 <button type="submit">Cadastrar Produto</button>
-
 </form>
 
 <hr>
