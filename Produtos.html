@@ -10,6 +10,7 @@
 
 <header class="topo">
 <h1>🔥 Valendo Sexy Shop</h1>
+
 <nav>
 <a href="index.html">Início</a>
 <a href="produtos.html">Produtos</a>
@@ -25,21 +26,3 @@
 
 </body>
 </html>
-<div id="lista"></div>
-
-<script>
-
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-produtos.forEach(p => {
-
-lista.innerHTML += `
-<div>
-<img src="${p.imagem}" width="150">
-<h3>${p.nome}</h3>
-<p>R$ ${p.preco}</p>
-</div>
-`;
-
-});
-</script>
