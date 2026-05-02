@@ -70,3 +70,37 @@ mostrarProdutos();
 }
 
 mostrarProdutos();
+// =========================
+// MOSTRAR NA LOJA
+// =========================
+
+const loja = document.getElementById("loja");
+
+if(loja){
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+produtos.forEach(p=>{
+
+loja.innerHTML += `
+<div class="produto">
+<img src="${p.imagem}">
+<h3>${p.nome}</h3>
+<p>R$ ${p.preco}</p>
+<button onclick="comprar('${p.nome}')">Comprar</button>
+</div>
+`;
+
+});
+
+}
+
+function comprar(produto){
+
+let numero="5551999999999";
+
+let msg=`Olá quero comprar: ${produto} 🔥`;
+
+window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
+
+}
