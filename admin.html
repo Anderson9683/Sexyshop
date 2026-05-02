@@ -44,3 +44,30 @@ if(localStorage.getItem("admin") !== "logado"){
 
 </body>
 </html>
+<h2>Painel ADMIN</h2>
+
+<input id="nome" placeholder="Nome do produto">
+<input id="preco" placeholder="Preço">
+<input id="imagem" placeholder="URL da imagem">
+
+<button onclick="salvar()">Cadastrar</button>
+
+<script>
+
+function salvar(){
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+produtos.push({
+nome: nome.value,
+preco: preco.value,
+imagem: imagem.value
+});
+
+localStorage.setItem("produtos", JSON.stringify(produtos));
+
+alert("Produto cadastrado!");
+
+}
+
+</script>
