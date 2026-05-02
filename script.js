@@ -18,7 +18,30 @@ let nome = document.getElementById("nome").value;
 let preco = document.getElementById("preco").value;
 let imagem = document.getElementById("imagem").value;
 
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+fetch("COLE_AQUI_SEU_LINK_SHEETDB")
+.then(response => response.json())
+.then(produtos => {
+
+const loja = document.getElementById("loja");
+
+if(!loja) return;
+
+loja.innerHTML = "";
+
+produtos.forEach(p => {
+
+loja.innerHTML += `
+<div class="produto">
+<img src="${p.imagem}">
+<h3>${p.nome}</h3>
+<p>R$ ${p.preco}</p>
+<button onclick="comprar('${p.nome}')">Comprar</button>
+</div>
+`;
+
+});
+
+});
 
 produtos.push({nome, preco, imagem});
 
