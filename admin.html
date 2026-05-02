@@ -3,6 +3,7 @@ if(localStorage.getItem("admin") !== "logado"){
     window.location.href="login.html";
 }
 </script>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,6 +16,7 @@ if(localStorage.getItem("admin") !== "logado"){
 
 <header class="topo">
 <h1>🔥 Valendo Sexy Shop</h1>
+
 <nav>
 <a href="index.html">Início</a>
 <a href="produtos.html">Produtos</a>
@@ -26,11 +28,9 @@ if(localStorage.getItem("admin") !== "logado"){
 
 <form id="formProduto">
 
-<input type="text" id="nome" placeholder="Nome do Produto" required>
-
-<input type="text" id="preco" placeholder="Preço" required>
-
-<input type="text" id="imagem" placeholder="URL da Imagem" required>
+<input id="nome" placeholder="Nome do Produto" required>
+<input id="preco" placeholder="Preço" required>
+<input id="imagem" placeholder="URL da imagem" required>
 
 <button type="submit">Cadastrar Produto</button>
 
@@ -44,30 +44,3 @@ if(localStorage.getItem("admin") !== "logado"){
 
 </body>
 </html>
-<h2>Painel ADMIN</h2>
-
-<input id="nome" placeholder="Nome do produto">
-<input id="preco" placeholder="Preço">
-<input id="imagem" placeholder="URL da imagem">
-
-<button onclick="salvar()">Cadastrar</button>
-
-<script>
-
-function salvar(){
-
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-produtos.push({
-nome: nome.value,
-preco: preco.value,
-imagem: imagem.value
-});
-
-localStorage.setItem("produtos", JSON.stringify(produtos));
-
-alert("Produto cadastrado!");
-
-}
-
-</script>
