@@ -18,7 +18,7 @@ let nome = document.getElementById("nome").value;
 let preco = document.getElementById("preco").value;
 let imagem = document.getElementById("imagem").value;
 
-fetch("COLE_AQUI_SEU_LINK_SHEETDB")
+fetch("https://sheetdb.io/api/v1/9ljb5e8ydc070")
 .then(response => response.json())
 .then(produtos => {
 
