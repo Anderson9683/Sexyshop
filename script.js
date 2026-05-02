@@ -1,102 +1,28 @@
-console.log("Loja Online 🔥");
+const url =
+"https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WAEsIp3rHxbuGlIsrA/export?format=csv";
 
-document.addEventListener("DOMContentLoaded", function(){
+fetch(url)
+  .then(response => response.text())
+  .then(data => {
+    const linhas = data.split("\n").slice(1);
 
-const API = "https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WAEsIp3rHxbuGlIsrA/edit#gid=0";
+    const produtosDiv = document.getElementById("produtos");
 
+    linhas.forEach(linha => {
+      const colunas = linha.split(",");
 
-// =========================
-// CADASTRAR PRODUTO
-// =========================
+      const nome = colunas[0];
+      const preco = colunas[1];
+      const imagem = colunas[2];
+      const descricao = colunas[3];
 
-const form = document.getElementById("formProduto");
-
-if(form){
-
-form.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-let nome = document.getElementById("nome").value;
-let preco = document.getElementById("preco").value;
-let imagem = document.getElementById("imagem").value;
-
-fetch(API,{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-data:{
-nome:nome,
-preco:preco,
-imagem:imagem
-}
-})
-})
-.then(()=>{
-
-alert("Produto cadastrado com sucesso ✅");
-
-form.reset();
-
-mostrarLoja();
-
-});
-
-});
-
-}
-
-
-// =========================
-// MOSTRAR LOJA
-// =========================
-
-function mostrarLoja(){
-
-const loja = document.getElementById("loja");
-
-if(!loja) return;
-
-fetch(API)
-.then(res=>res.json())
-.then(produtos=>{
-
-loja.innerHTML="";
-
-produtos.forEach(p=>{
-
-loja.innerHTML+=`
-<div class="produto">
-<img src="${p.imagem}">
-<h3>${p.nome}</h3>
-<p>R$ ${p.preco}</p>
-<button onclick="comprar('${p.nome}')">Comprar</button>
-</div>
-`;
-
-});
-
-});
-
-}
-
-
-// =========================
-// WHATSAPP
-// =========================
-
-window.comprar=function(produto){
-
-let numero="5551998084487";
-
-let msg=`Olá quero comprar: ${produto} 🔥`;
-
-window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
-
-}
-
-mostrarLoja();
-
-});
+      produtosDiv.innerHTML += `
+        <div class="produto">
+          <img src="${imagem}" width="200">
+          <h3>${nome}</h3>
+          <p>R$ ${preco}</p>
+          <p>${descricao}</p>
+        </div>
+      `;
+    });
+  });
