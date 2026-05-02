@@ -1,4 +1,4 @@
-console.log("Valendo Sexy Shop Online 🔥");
+console.log("Loja Online 🔥");
 
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -6,7 +6,7 @@ const API = "https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WA
 
 
 // =========================
-// CADASTRAR PRODUTO ONLINE
+// CADASTRAR PRODUTO
 // =========================
 
 const form = document.getElementById("formProduto");
@@ -27,17 +27,20 @@ headers:{
 "Content-Type":"application/json"
 },
 body:JSON.stringify({
-data:[{nome,preco,imagem}]
+data:{
+nome:nome,
+preco:preco,
+imagem:imagem
+}
 })
 })
 .then(()=>{
 
-alert("Produto cadastrado ONLINE 🚀");
+alert("Produto cadastrado com sucesso ✅");
 
 form.reset();
 
 mostrarLoja();
-mostrarAdmin();
 
 });
 
@@ -47,7 +50,7 @@ mostrarAdmin();
 
 
 // =========================
-// MOSTRAR PRODUTOS NA LOJA
+// MOSTRAR LOJA
 // =========================
 
 function mostrarLoja(){
@@ -81,38 +84,6 @@ loja.innerHTML+=`
 
 
 // =========================
-// MOSTRAR ADMIN
-// =========================
-
-function mostrarAdmin(){
-
-const lista=document.getElementById("listaProdutos");
-
-if(!lista) return;
-
-fetch(API)
-.then(res=>res.json())
-.then(produtos=>{
-
-lista.innerHTML="";
-
-produtos.forEach(p=>{
-
-lista.innerHTML+=`
-<div>
-<img src="${p.imagem}" width="80">
-<b>${p.nome}</b> - R$ ${p.preco}
-</div>
-`;
-
-});
-
-});
-
-}
-
-
-// =========================
 // WHATSAPP
 // =========================
 
@@ -126,8 +97,6 @@ window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
 
 }
 
-
 mostrarLoja();
-mostrarAdmin();
 
 });
