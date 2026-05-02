@@ -133,3 +133,18 @@ margin-top:10px;
 }
 
 }
+/* CENTRALIZAR TITULOS */
+h1, h2{
+text-align:center;
+margin-top:20px;
+}
+
+/* AREA DOS PRODUTOS CENTRALIZADA */
+#produtos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+align-items:center;
+gap:20px;
+padding:20px;
+}
