@@ -105,3 +105,21 @@ flex-direction:column;
 }
 
 }
+
+.hero{
+width:100%;
+text-align:center;
+background:#000;
+}
+
+.hero img{
+width:100%;
+max-height:500px;
+object-fit:cover;
+cursor:pointer;
+transition:0.4s;
+}
+
+.hero img:hover{
+transform:scale(1.02);
+}
