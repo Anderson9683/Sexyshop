@@ -2,8 +2,11 @@ console.log("Valendo Sexy Shop Online 🔥");
 
 document.addEventListener("DOMContentLoaded", function(){
 
+const API = "https://sheetdb.io/api/v1/9ljb5e8ydc070";
+
+
 // =========================
-// CADASTRAR PRODUTO
+// CADASTRAR PRODUTO ONLINE
 // =========================
 
 const form = document.getElementById("formProduto");
@@ -18,104 +21,50 @@ let nome = document.getElementById("nome").value;
 let preco = document.getElementById("preco").value;
 let imagem = document.getElementById("imagem").value;
 
-fetch("https://sheetdb.io/api/v1/9ljb5e8ydc070")
-.then(response => response.json())
-.then(produtos => {
+fetch(API,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+data:[{nome,preco,imagem}]
+})
+})
+.then(()=>{
+
+alert("Produto cadastrado ONLINE 🚀");
+
+form.reset();
+
+mostrarLoja();
+mostrarAdmin();
+
+});
+
+});
+
+}
+
+
+// =========================
+// MOSTRAR PRODUTOS NA LOJA
+// =========================
+
+function mostrarLoja(){
 
 const loja = document.getElementById("loja");
 
 if(!loja) return;
 
-loja.innerHTML = "";
+fetch(API)
+.then(res=>res.json())
+.then(produtos=>{
 
-produtos.forEach(p => {
-
-loja.innerHTML += `
-<div class="produto">
-<img src="${p.imagem}">
-<h3>${p.nome}</h3>
-<p>R$ ${p.preco}</p>
-<button onclick="comprar('${p.nome}')">Comprar</button>
-</div>
-`;
-
-});
-
-});
-
-produtos.push({nome, preco, imagem});
-
-localStorage.setItem("produtos", JSON.stringify(produtos));
-
-alert("Produto cadastrado com sucesso!");
-
-form.reset();
-
-mostrarProdutos();
-mostrarLoja();
-
-});
-
-}
-
-// =========================
-// ADMIN LISTA
-// =========================
-
-function mostrarProdutos(){
-
-let lista = document.getElementById("listaProdutos");
-
-if(!lista) return;
-
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-lista.innerHTML = "";
-
-produtos.forEach((p,i)=>{
-
-lista.innerHTML += `
-<div>
-<img src="${p.imagem}" width="80">
-<b>${p.nome}</b> - R$ ${p.preco}
-<button onclick="remover(${i})">Excluir</button>
-</div>
-`;
-
-});
-
-}
-
-window.remover = function(i){
-
-let produtos = JSON.parse(localStorage.getItem("produtos"));
-
-produtos.splice(i,1);
-
-localStorage.setItem("produtos",JSON.stringify(produtos));
-
-mostrarProdutos();
-mostrarLoja();
-
-}
-
-// =========================
-// LOJA
-// =========================
-
-function mostrarLoja(){
-
-let loja = document.getElementById("loja");
-
-if(!loja) return;
-
-let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
-
-loja.innerHTML = "";
+loja.innerHTML="";
 
 produtos.forEach(p=>{
 
-loja.innerHTML += `
+loja.innerHTML+=`
 <div class="produto">
 <img src="${p.imagem}">
 <h3>${p.nome}</h3>
@@ -126,9 +75,48 @@ loja.innerHTML += `
 
 });
 
+});
+
 }
 
-window.comprar = function(produto){
+
+// =========================
+// MOSTRAR ADMIN
+// =========================
+
+function mostrarAdmin(){
+
+const lista=document.getElementById("listaProdutos");
+
+if(!lista) return;
+
+fetch(API)
+.then(res=>res.json())
+.then(produtos=>{
+
+lista.innerHTML="";
+
+produtos.forEach(p=>{
+
+lista.innerHTML+=`
+<div>
+<img src="${p.imagem}" width="80">
+<b>${p.nome}</b> - R$ ${p.preco}
+</div>
+`;
+
+});
+
+});
+
+}
+
+
+// =========================
+// WHATSAPP
+// =========================
+
+window.comprar=function(produto){
 
 let numero="5551998084487";
 
@@ -138,7 +126,8 @@ window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`);
 
 }
 
-mostrarProdutos();
+
 mostrarLoja();
+mostrarAdmin();
 
 });
