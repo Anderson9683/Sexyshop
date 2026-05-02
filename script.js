@@ -2,7 +2,7 @@ console.log("Valendo Sexy Shop Online 🔥");
 
 document.addEventListener("DOMContentLoaded", function(){
 
-const API = "https://sheetdb.io/api/v1/9ljb5e8ydc070";
+const API = "https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WAEsIp3rHxbuGlIsrA/edit#gid=0";
 
 
 // =========================
