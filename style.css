@@ -1,16 +1,18 @@
 body{
-font-family: Arial;
 margin:0;
+font-family:Arial;
 background:#111;
 color:white;
 }
 
 header{
-background:#ff0077;
+background:#000;
 padding:15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+position:sticky;
+top:0;
 }
 
 nav a{
@@ -23,47 +25,62 @@ font-weight:bold;
 .banner{
 text-align:center;
 padding:60px;
-background:linear-gradient(45deg,#ff0077,#660033);
+background:linear-gradient(45deg,#ff0055,#7b00ff);
 }
 
 .produtos{
 display:flex;
-justify-content:center;
-gap:30px;
-padding:40px;
 flex-wrap:wrap;
+justify-content:center;
+padding:20px;
 }
 
 .produto{
-background:#222;
+background:#1b1b1b;
+margin:15px;
 padding:20px;
 border-radius:10px;
 text-align:center;
-width:220px;
-box-shadow:0 0 10px black;
+width:250px;
+box-shadow:0 0 15px rgba(255,0,80,0.4);
+transition:0.3s;
 }
 
-.produto img{
-width:100%;
-border-radius:8px;
+.produto:hover{
+transform:scale(1.05);
 }
 
 button{
-background:#ff0077;
+background:#ff0055;
 border:none;
-padding:10px;
+padding:10px 20px;
 color:white;
 cursor:pointer;
 border-radius:5px;
-margin-top:10px;
-}
-
-button:hover{
-background:#ff3399;
 }
 
 footer{
 background:#000;
 text-align:center;
 padding:20px;
+margin-top:20px;
+}
+.topo{
+background:#000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.topo a:hover{
+color:#ff0055;
+}
+
+.produto img{
+width:100%;
+border-radius:10px;
 }
