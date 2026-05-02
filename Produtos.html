@@ -25,3 +25,21 @@
 
 </body>
 </html>
+<div id="lista"></div>
+
+<script>
+
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+produtos.forEach(p => {
+
+lista.innerHTML += `
+<div>
+<img src="${p.imagem}" width="150">
+<h3>${p.nome}</h3>
+<p>R$ ${p.preco}</p>
+</div>
+`;
+
+});
+</script>
