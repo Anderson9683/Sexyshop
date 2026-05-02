@@ -1,12 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Painel Admin</title>
+
+<link rel="stylesheet" href="style.css">
+
 <script>
 if(localStorage.getItem("admin") !== "logado"){
     window.location.href="login.html";
 }
 </script>
 
-<!DOCTYPE html>
+</head>
 <html lang="pt-br">
-<head>
+<head><script>
+if(localStorage.getItem("admin") !== "logado"){
+    window.location.href="login.html";
+}
+</script>
+
+<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Painel Admin</title>
