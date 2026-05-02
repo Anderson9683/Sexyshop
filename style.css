@@ -84,3 +84,52 @@ color:#ff0055;
 width:100%;
 border-radius:10px;
 }
+/* ========================= */
+/* MOBILE RESPONSIVO */
+/* ========================= */
+
+@media (max-width: 768px){
+
+.topo{
+flex-direction:column;
+text-align:center;
+}
+
+nav{
+margin-top:10px;
+}
+
+nav a{
+display:block;
+margin:5px 0;
+}
+
+.banner{
+padding:30px 10px;
+}
+
+.produtos{
+flex-direction:column;
+align-items:center;
+}
+
+.produto{
+width:90%;
+margin:10px 0;
+}
+
+.produto img{
+width:100%;
+height:auto;
+}
+
+h1{
+font-size:22px;
+}
+
+button{
+width:100%;
+margin-top:10px;
+}
+
+}
