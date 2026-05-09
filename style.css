@@ -141,3 +141,12 @@ transition:0.3s;
 .banner-img:hover{
 transform:scale(1.03);
 }
+.banner{
+text-align:center;
+}
+
+.banner-img{
+width:100%;
+max-width:1000px;
+height:auto;
+}
