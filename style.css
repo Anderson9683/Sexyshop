@@ -49,9 +49,25 @@ margin-top:30px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-padding:20px;
+align-items:center;
+gap:20px;
+padding:10px;
 }
 
+/* ✅ Ajuste automático para celular */
+@media (max-width:768px){
+
+.produtos{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:90%;
+max-width:300px;
+}
+
+}
 .produto{
 background:#1b1b1b;
 margin:15px;
