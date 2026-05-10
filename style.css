@@ -262,3 +262,45 @@ height:auto;
 .produto button:hover{
     background: #ff2a94;
 }
+/* ===================== */
+/* PRODUTOS CENTRALIZADOS */
+/* ===================== */
+
+.produtos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:15px;
+}
+
+/* card do produto */
+.card{
+background:#1b1b1b;
+border-radius:15px;
+padding:20px;
+text-align:center;
+box-shadow:0 0 15px #ff0066;
+width:250px;
+}
+
+/* imagem do produto */
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width:768px){
+
+.produtos{
+flex-direction:column;
+align-items:center;
+}
+
+.card{
+width:90%;
+max-width:300px;
+}
+
+}
