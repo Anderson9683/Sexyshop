@@ -1,35 +1,44 @@
-document.addEventListener("DOMContentLoaded", function(){
+const URL =
+"https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WAEsIp3rHxbuGlIsrA/export?format=csv";
 
-const produtos = [
-{
-nome:"Vibrador Luxo",
-preco:"R$ 89,90",
-img:"https://via.placeholder.com/250"
-},
-{
-nome:"Algemas Sensuais",
-preco:"R$ 39,90",
-img:"https://via.placeholder.com/250"
-},
-{
-nome:"Gel Beijável",
-preco:"R$ 29,90",
-img:"https://via.placeholder.com/250"
-}
-];
+fetch(URL)
+.then(res => res.text())
+.then(texto => {
 
-const lista = document.getElementById("produtos");
+const linhas = texto.split("\n").slice(1);
 
-produtos.forEach(p=>{
-const card = `
-<div class="card">
-<img src="${p.img}">
-<h3>${p.nome}</h3>
-<p>${p.preco}</p>
+const area = document.getElementById("produtos");
+
+area.innerHTML = "";
+
+linhas.forEach(linha => {
+
+const dados = linha.split(",");
+
+const nome = dados[0];
+const preco = dados[1];
+const imagem = dados[2];
+
+if(!nome) return;
+
+area.innerHTML += `
+<div class="produto">
+<img src="${imagem}" alt="${nome}">
+<h3>${nome}</h3>
+<p>R$ ${preco}</p>
+<button onclick="comprar('${nome}')">
+Comprar
+</button>
 </div>
 `;
 
-lista.innerHTML += card;
 });
 
 });
+
+function comprar(produto){
+window.open(
+"https://wa.me/5551998084487?text=Quero comprar "+produto,
+"_blank"
+);
+}
