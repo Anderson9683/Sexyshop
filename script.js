@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
 const produtos = [
 {
@@ -20,7 +20,7 @@ img:"https://via.placeholder.com/250"
 
 const lista = document.getElementById("produtos");
 
-produtos.forEach(p => {
+produtos.forEach(p=>{
 const card = `
 <div class="card">
 <img src="${p.img}">
