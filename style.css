@@ -3,9 +3,10 @@ margin:0;
 font-family:Arial;
 background:#111;
 color:white;
+text-align:center;
 }
 
-/* ================= HEADER ================= */
+/* TOPO */
 
 .topo{
 background:#000;
@@ -13,12 +14,6 @@ padding:15px;
 display:flex;
 flex-direction:column;
 align-items:center;
-}
-
-nav{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
 }
 
 nav a{
@@ -32,102 +27,57 @@ nav a:hover{
 color:#ff0080;
 }
 
-/* ================= BANNER ================= */
+/* HERO */
 
-.banner{
-text-align:center;
-margin-top:20px;
-}
-
-.banner-img{
-width:95%;
-max-width:1000px;
-border-radius:20px;
-box-shadow:0 0 25px #ff00aa;
+.hero img{
+width:100%;
+max-height:500px;
+object-fit:cover;
 cursor:pointer;
-transition:0.3s;
 }
 
-.banner-img:hover{
-transform:scale(1.03);
+/* MENU ICONES */
+
+.menu-icons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+margin:20px;
 }
 
-/* ================= TITULO ================= */
-
-.titulo{
-text-align:center;
-margin-top:30px;
+.menu-icons a{
+text-decoration:none;
+color:white;
 }
 
-/* ================= PRODUTOS ================= */
+.menu-icons img{
+width:60px;
+}
+
+/* PRODUTOS */
 
 .produtos{
 display:flex;
 flex-wrap:wrap;
-justify-content:center; /* CENTRALIZA */
-gap:25px;
+justify-content:center;
+gap:20px;
 padding:20px;
 }
 
-/* CARD PRODUTO */
-.produto{
-background:#1b1b1b;
-padding:20px;
-border-radius:15px;
+.card{
+background:#222;
+padding:15px;
+border-radius:10px;
 width:250px;
 text-align:center;
-box-shadow:0 0 15px rgba(255,0,80,0.4);
-transition:0.3s;
 }
 
-.produto:hover{
-transform:scale(1.05);
-}
-
-.produto img{
+.card img{
 width:100%;
 border-radius:10px;
 }
 
-/* BOTÃO */
-button{
-background:#ff0080;
-border:none;
-padding:10px 20px;
-color:white;
-cursor:pointer;
-border-radius:8px;
-margin-top:10px;
-}
-
-/* ================= CONTATO ================= */
-
-.contato{
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-height:60vh;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-text-align:center;
-padding:20px;
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-.produtos{
-flex-direction:column;
-align-items:center;
-}
-
-.produto{
-width:90%;
-}
-
+.titulo{
+margin-top:20px;
 }
