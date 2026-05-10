@@ -81,3 +81,37 @@ border-radius:10px;
 .titulo{
 margin-top:20px;
 }
+.produtos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+}
+
+.produto{
+background:#1b1b1b;
+padding:20px;
+border-radius:12px;
+width:250px;
+text-align:center;
+box-shadow:0 0 15px #ff0066;
+}
+
+.produto img{
+width:100%;
+border-radius:10px;
+}
+
+/* CELULAR */
+@media(max-width:768px){
+.produtos{
+flex-direction:column;
+align-items:center;
+}
+
+.produto{
+width:90%;
+max-width:300px;
+}
+}
