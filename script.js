@@ -25,15 +25,13 @@ produtosDiv.innerHTML += `
 <h3>${nome}</h3>
 <p>R$ ${preco}</p>
 <p>${descricao}</p>
-
-<a href="https://wa.me/5551998084487?text=Olá quero comprar ${nome}" target="_blank">
-<button>Comprar</button>
-</a>
-
 </div>
 `;
 
 });
 
+});
+
+}
 });
 }
