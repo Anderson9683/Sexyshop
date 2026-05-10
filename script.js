@@ -1,6 +1,6 @@
 const produtosDiv = document.getElementById("produtos");
 
-if(produtosDiv){
+if (produtosDiv) {
 
 fetch("https://docs.google.com/spreadsheets/d/1OAA883uAREpPG-h7pupwizHH8WAEsIp3rHxbuGlIsrA/export?format=csv")
 .then(res => res.text())
@@ -12,7 +12,9 @@ produtosDiv.innerHTML = "";
 
 linhas.forEach(linha => {
 
-const colunas = linha.split(",");
+if(!linha.trim()) return;
+
+const colunas = linha.split(";");
 
 const nome = colunas[0];
 const preco = colunas[1];
@@ -24,7 +26,7 @@ produtosDiv.innerHTML += `
 <img src="${imagem}">
 <h3>${nome}</h3>
 <p>R$ ${preco}</p>
-<p>${descricao}</p>
+<p>${descricao || ""}</p>
 </div>
 `;
 
@@ -32,6 +34,4 @@ produtosDiv.innerHTML += `
 
 });
 
-}
-});
 }
